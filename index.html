@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logiqra — Sistem Inventory & Gudang untuk Bisnis Distribusi Indonesia</title>
-<meta name="description" content="Sistem manajemen inventory dan logistik berbasis Google Sheets. Tanpa biaya server, tanpa install, setup mandiri dalam satu hari.">
+<meta name="description" content="Logiqra: sistem inventory berbasis Google Sheets dan Apps Script. Rp500.000 sekali bayar, termasuk pendampingan instalasi satu sesi dan tiga sesi pelatihan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -48,6 +48,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:fl
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gray-light);padding:0.85rem 1.75rem;border-radius:var(--radius-sm);font-size:0.95rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s}
 .btn-secondary:hover{border-color:var(--teal);color:var(--teal)}
 .hero-stats{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08)}
+.hero-stats{flex-wrap:wrap}
 .hero-stat-num{font-size:1.5rem;font-weight:800;color:var(--white)}
 .hero-stat-label{font-size:0.8rem;color:var(--gray);margin-top:2px}
 
@@ -171,6 +172,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:fl
 .infra-num{font-size:2rem;font-weight:800;color:var(--teal);margin-bottom:0.25rem;font-family:var(--mono)}
 .infra-label{font-size:0.8rem;color:var(--gray);line-height:1.5}
 
+/* INTERACTIVE TOUR */
+.tour{padding:6rem 2rem;background:var(--dark-2)}
+.tour-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.tour-heading .section-desc{max-width:650px}
+.tour-badge{display:inline-block;border:1px solid rgba(29,158,117,.4);background:rgba(29,158,117,.12);color:#82d5b8;border-radius:100px;padding:.35rem .8rem;font-size:.76rem;font-weight:700}
+.tour-shell{margin-top:2rem;background:var(--dark-3);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);overflow:hidden}
+.tour-progress{height:5px;background:rgba(255,255,255,.07)}
+.tour-progress span{display:block;height:100%;width:14.285%;background:var(--teal);transition:width .25s}
+.tour-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);gap:0}
+.tour-screen{background:#ebe8e1;min-height:430px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tour-screen img{display:block;width:100%;height:auto;max-height:620px;object-fit:contain}
+.tour-copy{padding:2rem;display:flex;flex-direction:column}
+.tour-count{color:var(--teal);font-family:var(--mono);font-size:.75rem;margin-bottom:.9rem}
+.tour-copy h3{font-size:clamp(1.25rem,2vw,1.8rem);line-height:1.25;margin-bottom:1rem}
+.tour-copy p{font-size:.93rem;color:var(--gray-light);line-height:1.75}
+.tour-document{margin-top:1.4rem;border-left:3px solid var(--teal);padding:.75rem 1rem;background:rgba(29,158,117,.09);font-family:var(--mono);font-size:.78rem;color:#a5dfca;overflow-wrap:anywhere}
+.tour-actions{margin-top:auto;padding-top:1.5rem;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+.tour-btn{border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-sm);background:transparent;color:var(--white);padding:.65rem 1rem;font:600 .84rem var(--font);cursor:pointer}
+.tour-btn:hover,.tour-btn:focus-visible{border-color:var(--teal);outline:none}
+.tour-btn-primary{background:var(--teal);border-color:var(--teal)}
+.tour-btn-primary:hover,.tour-btn-primary:focus-visible{background:var(--teal-dark)}
+.tour-btn:disabled{opacity:.38;cursor:not-allowed}
+.tour-dots{display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;padding:1rem 1.5rem;border-top:1px solid rgba(255,255,255,.08)}
+.tour-dots button{width:28px;height:28px;border:0;border-radius:50%;background:rgba(255,255,255,.1);color:var(--gray-light);font:600 .72rem var(--mono);cursor:pointer}
+.tour-dots button[aria-current="step"]{background:var(--teal);color:white}
+.tour-note{padding:0 1.5rem 1rem;font-size:.76rem;color:var(--gray)}
+.offer{padding:5rem 2rem;background:var(--dark)}
+.offer-card{max-width:900px;margin:auto;border:1px solid rgba(29,158,117,.35);border-radius:var(--radius);padding:2.4rem;background:linear-gradient(140deg,rgba(29,158,117,.13),rgba(255,255,255,.02))}
+.offer-price{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.1;margin:.5rem 0}
+.offer-list{display:grid;grid-template-columns:1fr 1fr;gap:.7rem 1.4rem;margin:1.4rem 0 1.8rem;color:var(--gray-light);font-size:.9rem}
+.offer-list span:before{content:'✓';color:var(--teal);font-weight:800;margin-right:.5rem}
+.offer-note{font-size:.78rem;color:var(--gray);margin-top:1rem}
+
 /* CTA SECTION */
 .cta-section{padding:6rem 2rem;background:var(--dark-2);text-align:center}
 .cta-inner{max-width:700px;margin:0 auto}
@@ -200,6 +234,11 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
   nav{padding:1rem}
   .hero{padding:6rem 1.25rem 3rem}
   .problem,.solution,.howitworks,.comparison,.features-deep,.infra,.cta-section{padding:4rem 1.25rem}
+  .tour,.offer{padding:4rem 1.25rem}
+  .tour-grid{grid-template-columns:1fr}
+  .tour-screen{min-height:190px}
+  .tour-copy{padding:1.4rem}
+  .offer-list{grid-template-columns:1fr}
 }
 
 /* ANIMATE */
@@ -209,6 +248,8 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
 .hero-desc{animation-delay:0.2s}
 .hero-ctas{animation-delay:0.3s}
 .hero-stats{animation-delay:0.4s}
+
+.tour-screen{position:relative}.tour-zoom{position:absolute;right:12px;bottom:12px;background:#17372f;color:white;border:1px solid #fff8;border-radius:8px;padding:10px 14px;cursor:pointer}.tour-lightbox{width:min(96vw,1600px);max-width:96vw;background:#17251f;color:white;border:1px solid #ffffff40;border-radius:12px;padding:16px}.tour-lightbox::backdrop{background:#000d}.tour-lightbox img{display:block;width:100%;height:auto}.tour-lightbox button{float:right;margin-bottom:12px}.tour-lightbox h3{font-size:1rem;margin-bottom:12px}.tour-dots button:focus-visible{outline:3px solid white;outline-offset:3px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tour-progress span{transition:none}}
 </style>
 </head>
 <body>
@@ -231,23 +272,24 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
         <div class="hero-badge-dot"></div>
         Sistem Inventory untuk Distribusi Indonesia
       </div>
-      <h1>Gudang rapi.<br><span>Stok akurat.</span><br>Tanpa bayar server.</h1>
-      <p class="hero-desc">Logiqra adalah sistem manajemen inventory dan logistik berbasis Google Sheets — dengan approval workflow, multi gudang, dan delivery tracking. Setup mandiri dalam satu hari.</p>
+      <h1>Gudang rapi.<br><span>Stok akurat.</span><br>Setiap gerak ada dokumen.</h1>
+      <p class="hero-desc">Logiqra adalah sistem manajemen inventory dan logistik berbasis Google Sheets dan Apps Script — dengan approval, multi gudang, dan delivery tracking. Rp500.000 sekali bayar, tanpa sewa server khusus.</p>
       <div class="hero-ctas">
+        <a href="#tur" class="btn-primary">Coba Tur Interaktif →</a>
         <a href="https://wa.me/6281228404807?text=Halo,%20saya%20tertarik%20dengan%20Logiqra.%20Bisa%20demo%20dulu?" class="btn-primary" target="_blank">
           <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.54 4.157 1.562 5.973L.057 23.943l6.099-1.598A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.36-.214-3.72.976.993-3.625-.235-.372A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
           Tanya via WhatsApp
         </a>
-        <a href="#fitur" class="btn-secondary">Lihat Fitur ↓</a>
+        <a href="https://www.youtube.com/watch?v=KKPGPUM6EeU" class="btn-secondary" target="_blank" rel="noopener noreferrer">Tonton Video Pertama ↗</a>
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-num">Rp 0</div>
-          <div class="hero-stat-label">Biaya server/bulan</div>
+          <div class="hero-stat-num">Rp500rb</div>
+          <div class="hero-stat-label">Sekali bayar</div>
         </div>
         <div>
-          <div class="hero-stat-num">1 hari</div>
-          <div class="hero-stat-label">Setup mandiri</div>
+          <div class="hero-stat-num">1 + 3</div>
+          <div class="hero-stat-label">Sesi instalasi + pelatihan</div>
         </div>
         <div>
           <div class="hero-stat-num">4 role</div>
@@ -320,6 +362,39 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
   </div>
 </section>
 
+<!-- INTERACTIVE TOUR -->
+<section class="tour" id="tur" aria-labelledby="tour-title">
+  <div class="section-inner">
+    <div class="tour-heading">
+      <div>
+        <div class="section-eyebrow">Coba langsung alurnya</div>
+        <h2 class="section-title" id="tour-title">Tur interaktif Logiqra</h2>
+        <p class="section-desc">Ikuti satu contoh barang dari penerimaan sampai pengiriman. Semua layar berasal dari web app Logiqra dengan data contoh.</p>
+      </div>
+      <span class="tour-badge">DEMO BACA SAJA · TANPA LOGIN</span>
+    </div>
+    <div class="tour-shell">
+      <div class="tour-progress" aria-hidden="true"><span id="tour-progress-fill"></span></div>
+      <div class="tour-grid">
+        <div class="tour-screen"><img id="tour-image" src="assets/01-dashboard.png" alt="Dashboard Logiqra dengan data contoh" width="1920" height="1000" loading="lazy"><button class="tour-zoom" id="tour-zoom" type="button">⤢ Perbesar layar</button></div>
+        <div class="tour-copy" aria-live="polite">
+          <div class="tour-count" id="tour-count">LANGKAH 1 DARI 7</div>
+          <h3 id="tour-step-title">Mulai dari dashboard</h3>
+          <p id="tour-step-description">Lihat ringkasan stok, aktivitas, dan dokumen terbaru dari seluruh gudang.</p>
+          <div class="tour-document" id="tour-document">DOKUMEN: GRN · TRANSFER · DO</div>
+          <div class="tour-actions">
+            <button class="tour-btn" id="tour-prev" type="button" disabled>← Sebelumnya</button>
+            <button class="tour-btn tour-btn-primary" id="tour-next" type="button">Berikutnya →</button>
+          </div>
+        </div>
+      </div>
+      <div class="tour-dots" id="tour-dots" aria-label="Pilih langkah tur"></div><button class="tour-btn" id="tour-reset" type="button" style="margin:0 1.5rem 1rem">↺ Ulangi tur</button>
+      <p class="tour-note">Tur ini memakai tampilan asli dan data contoh. Mengklik langkah tidak membuat transaksi atau mengubah stok.</p>
+    </div>
+  </div>
+</section>
+
+<dialog class="tour-lightbox" id="tour-lightbox" aria-labelledby="tour-lightbox-title"><button class="tour-btn" id="tour-close" type="button">Tutup ✕</button><h3 id="tour-lightbox-title">Tampilan Logiqra</h3><img id="tour-large-image" alt=""></dialog>
 <!-- TRUST BAR -->
 <div class="trust">
   <div class="trust-inner">
@@ -475,22 +550,22 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
 <section class="howitworks">
   <div class="section-inner">
     <div class="section-eyebrow">Cara kerja</div>
-    <h2 class="section-title">Setup dalam satu hari,<br>langsung bisa dipakai</h2>
+    <h2 class="section-title">Dari instalasi sampai<br>siap dipakai tim</h2>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <h3>Setup & Onboarding</h3>
-        <p>Setup Wizard 5 langkah — tambah gudang, item, user, dan konfigurasi dasar. Bisa dilakukan sendiri tanpa perlu IT atau developer.</p>
+        <p>Salin spreadsheet, pasang kode, inisialisasi sheet, deploy web app, lalu isi Setup Wizard. Satu sesi pendampingan instalasi termasuk dalam paket.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Training via Zoom</h3>
-        <p>Training 1–2 jam bersama tim kamu. Semua role diajari sesuai tugasnya — dari Admin sampai staf gudang.</p>
+        <h3>Pelatihan 3 sesi</h3>
+        <p>Tiga sesi pelatihan penggunaan agar tim memahami master data, dokumen barang masuk dan keluar, serta laporan.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <h3>Langsung Operasional</h3>
-        <p>Hari itu juga sistem sudah bisa dipakai. Data stok masuk, transaksi berjalan, laporan tersedia real-time.</p>
+        <p>Sesudah data awal dan uji transaksi diperiksa, tim dapat mulai mencatat pergerakan barang dengan dokumen.</p>
       </div>
     </div>
   </div>
@@ -664,12 +739,12 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
 <section class="infra">
   <div class="infra-inner">
     <div class="section-eyebrow" style="text-align:center">Infrastruktur</div>
-    <h2 class="section-title" style="text-align:center">Data kamu, di server kamu,<br>biaya server kamu</h2>
-    <p class="section-desc" style="margin:1rem auto 0;text-align:center">Logiqra jalan sepenuhnya di Google infrastructure — yang sudah gratis dan sudah kamu percaya selama ini.</p>
+    <h2 class="section-title" style="text-align:center">Data di akun Google kamu,<br>tanpa sewa server khusus</h2>
+    <p class="section-desc" style="margin:1rem auto 0;text-align:center">Logiqra berjalan di akun Google milik kamu. Tidak perlu menyewa server khusus; kebijakan dan kuota layanan Google tetap berlaku.</p>
     <div class="infra-cards">
       <div class="infra-card">
         <div class="infra-num">Rp 0</div>
-        <div class="infra-label">Biaya server per bulan — selamanya</div>
+        <div class="infra-label">Sewa server khusus dari Logiqra per bulan</div>
       </div>
       <div class="infra-card">
         <div class="infra-num">100%</div>
@@ -677,13 +752,30 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
       </div>
       <div class="infra-card">
         <div class="infra-num">0</div>
-        <div class="infra-label">Instalasi yang diperlukan — buka browser, langsung pakai</div>
+        <div class="infra-label">Perangkat server khusus yang perlu disiapkan</div>
       </div>
       <div class="infra-card">
         <div class="infra-num">1x</div>
-        <div class="infra-label">Bayar sekali — tidak ada tagihan bulanan</div>
+        <div class="infra-label">Bayar aplikasi sekali — tanpa langganan Logiqra</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="paket">
+  <div class="offer-card">
+    <div class="section-eyebrow">Paket Logiqra</div>
+    <h2 class="section-title">Satu pembayaran untuk mulai tertibkan gudang</h2>
+    <div class="offer-price">Rp500.000 <span style="font-size:.33em;font-weight:600;color:var(--gray-light)">sekali bayar</span></div>
+    <div class="offer-list">
+      <span>File aplikasi Logiqra</span>
+      <span>Hak penggunaan versi yang dibeli tanpa batas waktu</span>
+      <span>Pendampingan instalasi 1 sesi</span>
+      <span>Pelatihan penggunaan 3 sesi</span>
+    </div>
+    <a class="btn-primary" href="https://wa.me/6281228404807?text=Halo,%20saya%20ingin%20tanya%20paket%20Logiqra%20Rp500.000%20sekali%20bayar%20dengan%201%20sesi%20instalasi%20dan%203%20sesi%20pelatihan." target="_blank" rel="noopener noreferrer">Tanya paket via WhatsApp →</a>
+    <div class="offer-note">Pembaruan versi tidak termasuk. Penggunaan Google Sheets, Apps Script, dan Drive mengikuti kebijakan serta kuota akun Google Anda.</div>
   </div>
 </section>
 
@@ -692,7 +784,7 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
   <div class="cta-inner">
     <div class="section-eyebrow" style="text-align:center">Mulai sekarang</div>
     <h2>Siap punya sistem gudang<br>yang bisa dipercaya?</h2>
-    <p>Hubungi kami via WhatsApp — kami akan jelaskan cara kerja Logiqra, paket yang sesuai untuk bisnis kamu, dan proses setup dari awal sampai selesai.</p>
+    <p>Sudah mencoba tur? Hubungi kami untuk membahas kebutuhan gudang Anda dan proses instalasi Logiqra.</p>
     <a href="https://wa.me/6281228404807?text=Halo,%20saya%20tertarik%20dengan%20Logiqra%20untuk%20bisnis%20saya.%20Bisa%20ceritakan%20lebih%20lanjut?" class="cta-wa-big" target="_blank">
       <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.54 4.157 1.562 5.973L.057 23.943l6.099-1.598A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.36-.214-3.72.976.993-3.625-.235-.372A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
       Chat WhatsApp Sekarang
@@ -708,6 +800,8 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
       <span>Logiqra</span> by Syncraworks · Sistem inventory untuk bisnis distribusi Indonesia
     </div>
     <div class="footer-links">
+      <a href="#tur">Tur Interaktif</a>
+      <a href="#paket">Paket</a>
       <a href="#fitur">Fitur</a>
       <a href="#modul">Modul</a>
       <a href="https://wa.me/6281228404807" target="_blank">WhatsApp</a>
@@ -716,5 +810,73 @@ footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
   </div>
 </footer>
 
+<script>
+(() => {
+  const steps = [
+    {image:'01-dashboard.png', alt:'Dashboard Logiqra dengan ringkasan stok dan transaksi contoh', title:'Mulai dari dashboard', description:'Ringkasan menunjukkan aktivitas gudang dan dokumen terbaru. Angka stok akan berubah ketika transaksi disetujui, sehingga tim dapat menelusuri asal perubahannya.', document:'DOKUMEN: GRN · TRANSFER · DO'},
+    {image:'02-master.png', alt:'Master barang pada web app Logiqra', title:'Satu acuan untuk barang dan gudang', description:'Master barang, gudang, customer, dan kendaraan menjadi acuan transaksi. Kode yang konsisten membantu tim memilih lokasi dan item yang benar.', document:'DATA AWAL: BARANG · GUDANG · CUSTOMER · KENDARAAN'},
+    {image:'03-grn-form.png', alt:'Form Goods Receipt Note Logiqra', title:'Barang masuk dicatat lewat GRN', description:'Contoh: 3.000 sak Beras Pandan Wangi masuk ke WH-SUB01. Form GRN mencatat pemasok, jumlah, QC, batch, dan tanggal kedaluwarsa. Stok bertambah setelah approval.', document:'GRN-20261105-0001 · APPROVED · +3.000 SAK'},
+    {image:'05-transfer.png', alt:'Halaman Warehouse Transfer Logiqra', title:'Pindah gudang tetap punya dokumen', description:'Dari stok yang diterima, 1.000 sak dipindahkan dari WH-SUB01 ke WH-SDA01. Kedua gudang berubah karena satu dokumen transfer yang dapat ditelusuri.', document:'TRF-20261105-0001 · WH-SUB01 → WH-SDA01 · 1.000 SAK'},
+    {image:'06-do-form.png', alt:'Form Delivery Order Logiqra', title:'Barang keluar lewat Delivery Order', description:'Toko Demo Makmur memesan 100 sak dari WH-SDA01. DO mencatat tujuan, jumlah, dan informasi pengiriman sebelum barang keluar.', document:'DO-20261105-0001 · 100 SAK · TOKO DEMO MAKMUR'},
+    {image:'08-tracking.png', alt:'Halaman Delivery Tracking dengan status Delivered', title:'Pengiriman bisa dipantau', description:'Setelah DO dibuat, status pengiriman dapat ditelusuri sampai Delivered. Tim bisa membuka dokumen yang sama untuk melihat perjalanan barang.', document:'DO-20261105-0001 · DELIVERED'},
+    {image:'11-stock-report.png', alt:'Laporan stok tersisa 900 sak di WH-SDA01', title:'Sisa stok cocok dengan dokumen', description:'Gudang WH-SDA01 menerima 1.000 sak dari transfer, lalu mengeluarkan 100 sak lewat DO. Laporan stok menunjukkan sisa 900 sak. Setiap perubahan mempunyai asal dokumen.', document:'1.000 MASUK − 100 KELUAR = 900 SAK'}
+  ];
+  const image=document.getElementById('tour-image');
+  const count=document.getElementById('tour-count');
+  const title=document.getElementById('tour-step-title');
+  const description=document.getElementById('tour-step-description');
+  const documentNo=document.getElementById('tour-document');
+  const prev=document.getElementById('tour-prev');
+  const next=document.getElementById('tour-next');
+  const dots=document.getElementById('tour-dots');
+  const progress=document.getElementById('tour-progress-fill');
+  let current=0;
+  steps.forEach((step,index)=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.textContent=String(index+1);
+    button.setAttribute('aria-label','Langkah '+(index+1)+': '+step.title);
+    button.addEventListener('click',()=>show(index));
+    dots.appendChild(button);
+  });
+  function show(index){
+    current=Math.max(0,Math.min(index,steps.length-1));
+    const step=steps[current];
+    image.src='assets/'+step.image;
+    image.alt=step.alt;
+    count.textContent='LANGKAH '+(current+1)+' DARI '+steps.length;
+    title.textContent=step.title;
+    description.textContent=step.description;
+    documentNo.textContent=step.document;
+    prev.disabled=current===0;
+    next.textContent=current===steps.length-1?'Tanya paket via WhatsApp →':'Berikutnya →';
+    progress.style.width=((current+1)/steps.length*100)+'%';
+    Array.from(dots.children).forEach((button,i)=>{
+      if(i===current)button.setAttribute('aria-current','step');
+      else button.removeAttribute('aria-current');
+    });
+  }
+  prev.addEventListener('click',()=>show(current-1));
+  next.addEventListener('click',()=>{
+    if(current<steps.length-1)show(current+1);
+    else window.open('https://wa.me/6281228404807?text=Halo,%20saya%20sudah%20mencoba%20tur%20interaktif%20Logiqra%20dan%20ingin%20tanya%20paket%20Rp500.000.','_blank','noopener,noreferrer');
+  });
+  document.getElementById('tur').addEventListener('keydown',event=>{
+    if(event.key==='ArrowRight'){event.preventDefault();show(current+1);}
+    if(event.key==='ArrowLeft'){event.preventDefault();show(current-1);}
+  });
+  const dialog=document.getElementById('tour-lightbox');
+  document.getElementById('tour-zoom').addEventListener('click',()=>{
+    document.getElementById('tour-large-image').src=image.src;
+    document.getElementById('tour-large-image').alt=image.alt;
+    document.getElementById('tour-lightbox-title').textContent=steps[current].title;
+    dialog.showModal();
+  });
+  document.getElementById('tour-close').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+  document.getElementById('tour-reset').addEventListener('click',()=>show(0));
+  show(0);
+})();
+</script>
 </body>
 </html>
